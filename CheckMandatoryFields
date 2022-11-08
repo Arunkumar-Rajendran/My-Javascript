@@ -1,0 +1,26 @@
+function CheckMandatoryField(executionContext){
+    try
+    {
+
+    var formContext = executionContext.getFormContext(); 
+    var FormType = formContext.ui.getFormType();
+
+    var CheckBoxField = formContext.getAttribute("csz_iwishtoreceivepaperreceipts").getValue();
+	var TextField = formContext.getAttribute("csz_residentialaddress").getValue();
+
+    
+    if (CheckBoxField == 1)
+    { 
+        formContext.getAttribute("csz_residentialaddress").setRequiredLevel("required");
+    }
+    else
+    { 
+        formContext.getControl("csz_residentialaddress").setRequiredLevel("none");
+    }
+}
+    catch(e)
+    {
+
+   alert("An error occurred, please try later");
+}
+}
